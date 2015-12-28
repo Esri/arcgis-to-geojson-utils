@@ -11,7 +11,7 @@
 [standard-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
 [standard-url]: http://npm.im/semistandard
 
-Tools to convert ArcGIS JSON geometries to GeoJSON geometries and vica-versa.
+Tools to convert ArcGIS JSON geometries to GeoJSON geometries and vice-versa.
 
 ## Install
 
@@ -25,23 +25,23 @@ npm install arcgis-to-geojson
 var arcgisToGeoJSON = require('arcgis-to-geojson').arcgisToGeoJSON;
 var geojsonToArcGIS = require('arcgis-to-geojson').geojsonToArcGIS;
 
-// parse ArcGIS JSON, convert it to a Terraformer.Primitive (GeoJSON)
+// parse ArcGIS JSON, convert it to GeoJSON
 var geojson = arcgisToGeoJSON.parse({
-    x:"-122.6764",
-    y:"45.5165",
-    spatialReference: {
-      wkid: 4326
+    "x":-122.6764,
+    "y":45.5165,
+    "spatialReference": {
+      "wkid": 4326
     }
   });
 
-// take a Terraformer.Primitive or GeoJSON and convert it back to ArcGIS JSON
+// take GeoJSON and convert it to ArcGIS JSON
 var arcgis = geojsonToArcGIS({
   "type": "Point",
   "coordinates": [45.5165, -122.6764]
 });
 ```
 
-This module is distributed as a [UMD]() module and can also be used in AMD based systems or as a global under the `ArcgisToGeojsonUtils` namespace.
+This package is distributed as a [UMD]() module and can also be used in AMD based systems or as a global under the `ArcgisToGeojsonUtils` namespace.
 
 ## Issues
 
