@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Patrick Arlt <patrick.arlt@gmail.com>",
   "bugs": {
-    "url": "https://github.com/patrickarlt/arcgis-to-geojson/issues"
+    "url": "https://github.com/esri/arcgis-to-geojson/issues"
   },
   "devDependencies": {
     "faucet": "0.0.1",
@@ -15,7 +15,7 @@
     "tape": "^4.0.0",
     "tape-run": "^2.1.0"
   },
-  "homepage": "https://github.com/patrickarlt/arcgis-to-geojson",
+  "homepage": "https://github.com/esri/arcgis-to-geojson",
   "keywords": [
     "arcgis",
     "convert",
