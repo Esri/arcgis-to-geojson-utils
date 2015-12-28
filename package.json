@@ -1,5 +1,5 @@
 {
-  "name": "arcgis-to-geojson",
+  "name": "arcgis-to-geojson-utils",
   "description": "Tools to convert ArcGIS JSON geometries to GeoJSON geometries and vica-versa.",
   "version": "1.0.0",
   "author": "Patrick Arlt <patrick.arlt@gmail.com>",

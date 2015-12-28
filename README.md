@@ -16,7 +16,7 @@ Tools to convert ArcGIS JSON geometries to GeoJSON geometries and vica-versa.
 ## Install
 
 ```
-npm install arcgis-to-geojson
+npm install arcgis-to-geojson-utils
 ```
 
 ## Usage
