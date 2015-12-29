@@ -11,7 +11,7 @@
 [standard-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
 [standard-url]: http://npm.im/semistandard
 
-Tools to convert ArcGIS JSON geometries to GeoJSON geometries and vice-versa.
+Tools to convert ArcGIS JSON geometries to GeoJSON geometries and vice versa.
 
 ## Install
 
@@ -26,7 +26,7 @@ var arcgisToGeoJSON = require('arcgis-to-geojson').arcgisToGeoJSON;
 var geojsonToArcGIS = require('arcgis-to-geojson').geojsonToArcGIS;
 
 // parse ArcGIS JSON, convert it to GeoJSON
-var geojson = arcgisToGeoJSON.parse({
+var geojson = arcgisToGeoJSON({
     "x":-122.6764,
     "y":45.5165,
     "spatialReference": {
