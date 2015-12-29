@@ -7,6 +7,10 @@
     "url": "https://github.com/esri/arcgis-to-geojson/issues"
   },
   "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-preset-es2015": "^6.1.18",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
     "faucet": "0.0.1",
     "gh-release": "^2.0.2",
     "rollup": "^0.21.0",
@@ -37,8 +41,8 @@
   },
   "scripts": {
     "lint": "semistandard | snazzy",
-    "test:node": "babel-node test/index.js | faucet",
-    "test:browser": "browserify test/index.js -t [ babelify --loose ] --debug | tape-run | faucet",
+    "test:node": "babel-node test/index.js [ babelify --presets es2015 ] | faucet",
+    "test:browser": "browserify test/index.js -t [ babelify --presets es2015 ] --debug | tape-run | faucet",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "release": "./release.sh",
     "bundle": "rollup index.js -m dist/arcgis-to-geojson.js.map -f umd -o dist/arcgis-to-geojson.js -n ArcgisToGeojsonUtils",
