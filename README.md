@@ -43,6 +43,8 @@ var arcgis = geojsonToArcGIS({
 
 This package is distributed as a [UMD]() module and can also be used in AMD based systems or as a global under the `ArcgisToGeojsonUtils` namespace.
 
+TypeScript typings and tests can be found in [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/types-2.0/arcgis-to-geojson-utils/index.d.ts), thanks to [@JeffJacobson](https://github.com/JeffJacobson)
+
 ## Issues
 
 Find a bug or want to request a new feature?  Please let us know by submitting an issue.
