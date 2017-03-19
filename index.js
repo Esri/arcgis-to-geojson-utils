@@ -11,7 +11,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the Liscense.
+ * limitations under the License.
  */
 
 // checks if 2 x,y points are equal
@@ -51,9 +51,9 @@ function ringIsClockwise (ringToTest) {
 
 // ported from terraformer.js https://github.com/Esri/Terraformer/blob/master/terraformer.js#L504-L519
 function vertexIntersectsVertex (a1, a2, b1, b2) {
-  var uaT = (b2[0] - b1[0]) * (a1[1] - b1[1]) - (b2[1] - b1[1]) * (a1[0] - b1[0]);
-  var ubT = (a2[0] - a1[0]) * (a1[1] - b1[1]) - (a2[1] - a1[1]) * (a1[0] - b1[0]);
-  var uB = (b2[1] - b1[1]) * (a2[0] - a1[0]) - (b2[0] - b1[0]) * (a2[1] - a1[1]);
+  var uaT = ((b2[0] - b1[0]) * (a1[1] - b1[1])) - ((b2[1] - b1[1]) * (a1[0] - b1[0]));
+  var ubT = ((a2[0] - a1[0]) * (a1[1] - b1[1])) - ((a2[1] - a1[1]) * (a1[0] - b1[0]));
+  var uB = ((b2[1] - b1[1]) * (a2[0] - a1[0])) - ((b2[0] - b1[0]) * (a2[1] - a1[1]));
 
   if (uB !== 0) {
     var ua = uaT / uB;
@@ -86,7 +86,7 @@ function coordinatesContainPoint (coordinates, point) {
   for (var i = -1, l = coordinates.length, j = l - 1; ++i < l; j = i) {
     if (((coordinates[i][1] <= point[1] && point[1] < coordinates[j][1]) ||
          (coordinates[j][1] <= point[1] && point[1] < coordinates[i][1])) &&
-        (point[0] < (coordinates[j][0] - coordinates[i][0]) * (point[1] - coordinates[i][1]) / (coordinates[j][1] - coordinates[i][1]) + coordinates[i][0])) {
+        (point[0] < ((coordinates[j][0] - coordinates[i][0]) * (point[1] - coordinates[i][1]))) / ((coordinates[j][1] - coordinates[i][1]) + coordinates[i][0])) {
       contains = !contains;
     }
   }
