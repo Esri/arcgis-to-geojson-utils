@@ -41,7 +41,16 @@ var arcgis = geojsonToArcGIS({
 });
 ```
 
+```js
+// this way works too
+var esriUtils = require('arcgis-to-geojson-utils');
+
+esriUtils.geojsonToArcGIS(/* ... */);
+esriUtils.arcgisToGeoJSON(/* ... */);
+```
+
 This package is distributed as a [UMD]() module and can also be used in AMD based systems or as a global under the `ArcgisToGeojsonUtils` namespace.
+
 
 Thanks to [@JeffJacobson](https://github.com/JeffJacobson), TypeScript typings and tests can be found on [npm](https://www.npmjs.com/package/@types/arcgis-to-geojson-utils).
 
