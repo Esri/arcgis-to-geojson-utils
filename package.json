@@ -4,7 +4,7 @@
   "version": "1.0.2",
   "author": "Patrick Arlt <patrick.arlt@gmail.com>",
   "bugs": {
-    "url": "https://github.com/esri/arcgis-to-geojson/issues"
+    "url": "https://github.com/Esri/arcgis-to-geojson-utils/issues"
   },
   "devDependencies": {
     "babel-cli": "^6.3.17",
@@ -20,7 +20,7 @@
     "tape": "^4.0.0",
     "tape-run": "^2.1.0"
   },
-  "homepage": "https://github.com/esri/arcgis-to-geojson",
+  "homepage": "https://github.com/Esri/arcgis-to-geojson-utils",
   "keywords": [
     "arcgis",
     "convert",
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/esri/arcgis-to-geojson.git"
+    "url": "https://github.com/Esri/arcgis-to-geojson-utils"
   },
   "scripts": {
     "lint": "semistandard | snazzy",
