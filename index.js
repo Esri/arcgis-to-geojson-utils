@@ -280,6 +280,11 @@ export function arcgisToGeoJSON (arcgis, idAttribute) {
     }
   }
 
+  // if no valid geometry was encountered
+  if (JSON.stringify(geojson.geometry) === JSON.stringify({})) {
+    geojson.geometry = null;
+  }
+
   return geojson;
 }
 

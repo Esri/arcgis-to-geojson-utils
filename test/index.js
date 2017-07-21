@@ -721,6 +721,25 @@ test('should parse an ArcGIS Null Island in a GeoJSON Point', function (t) {
   t.deepEqual(output.coordinates, [0, 0]);
 });
 
+test('should not pass along geometry when nothing valid is encountered in input', function (t) {
+  t.plan(2);
+
+  var input = {
+    'geometry': {
+      'x': 'NaN',
+      'y': 'NaN'
+    },
+    'attributes': {
+      'foo': 'bar'
+    }
+  };
+
+  var output = arcgisToGeoJSON(input);
+
+  t.deepEqual(output.properties.foo, 'bar');
+  t.deepEqual(output.geometry, null);
+});
+
 test('should parse an ArcGIS Polyline in a GeoJSON LineString', function (t) {
   t.plan(1);
 
