@@ -1,7 +1,7 @@
 {
   "name": "arcgis-to-geojson-utils",
   "description": "Tools to convert ArcGIS JSON geometries to GeoJSON geometries and vica-versa.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Patrick Arlt <patrick.arlt@gmail.com>",
   "bugs": {
     "url": "https://github.com/Esri/arcgis-to-geojson-utils/issues"
