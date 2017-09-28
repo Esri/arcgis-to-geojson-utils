@@ -346,4 +346,4 @@ export function geojsonToArcGIS (geojson, idAttribute) {
   return result;
 }
 
-export default { arcgisToGeoJSON, geojsonToArcGIS };
+export default { arcgisToGeoJSON: arcgisToGeoJSON, geojsonToArcGIS: geojsonToArcGIS };
