@@ -22,8 +22,8 @@ npm install @esri/arcgis-to-geojson-utils
 ## Usage
 
 ```js
-var arcgisToGeoJSON = require('arcgis-to-geojson-utils').arcgisToGeoJSON;
-var geojsonToArcGIS = require('arcgis-to-geojson-utils').geojsonToArcGIS;
+var arcgisToGeoJSON = require('@esri/arcgis-to-geojson-utils').arcgisToGeoJSON;
+var geojsonToArcGIS = require('@esri/arcgis-to-geojson-utils').geojsonToArcGIS;
 
 // parse ArcGIS JSON, convert it to GeoJSON
 var geojson = arcgisToGeoJSON({
@@ -43,7 +43,7 @@ var arcgis = geojsonToArcGIS({
 
 ```js
 // this way works too
-var esriUtils = require('arcgis-to-geojson-utils');
+var esriUtils = require('@esri/arcgis-to-geojson-utils');
 
 esriUtils.geojsonToArcGIS(/* ... */);
 esriUtils.arcgisToGeoJSON(/* ... */);
