@@ -2,7 +2,9 @@
 
 # config
 VERSION=$(node --eval "console.log(require('./package.json').version);")
-NAME=$(node --eval "console.log(require('./package.json').name);")
+
+# our .zip asset filename shouldnt include the npm namespace
+NAME=$(node --eval "console.log(require('./package.json').name);") | sed -e "s/@esri\///"
 
 # build and test
 npm test || exit 1
