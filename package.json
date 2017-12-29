@@ -1,7 +1,7 @@
 {
   "name": "@esri/arcgis-to-geojson-utils",
   "description": "Tools to convert ArcGIS JSON geometries to GeoJSON geometries and vica-versa.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Patrick Arlt <patrick.arlt@gmail.com>",
   "bugs": {
     "url": "https://github.com/Esri/arcgis-to-geojson-utils/issues"
@@ -43,7 +43,7 @@
   "scripts": {
     "lint": "semistandard | snazzy",
     "test:node": "babel-node test/index.js [ babelify --presets es2015 ] | faucet",
-    "test:browser": "browserify test/index.js -t [ babelify --presets es2015 ] --debug | tape-run --browser phantom | faucet",
+    "test:browser": "browserify test/index.js -t [ babelify --presets es2015 ] --debug | tape-run --browser chrome | faucet",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "release": "./release.sh",
     "bundle": "rollup index.js -m dist/arcgis-to-geojson.js.map -f umd -o dist/arcgis-to-geojson.js -n ArcgisToGeojsonUtils",
