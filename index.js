@@ -250,6 +250,9 @@ export function arcgisToGeoJSON (arcgis, idAttribute) {
   if (typeof arcgis.x === 'number' && typeof arcgis.y === 'number') {
     geojson.type = 'Point';
     geojson.coordinates = [arcgis.x, arcgis.y];
+    if (typeof arcgis.z === 'number') {
+      geojson.coordinates.push(arcgis.z);
+    }
   }
 
   if (arcgis.points) {

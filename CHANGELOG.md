@@ -3,11 +3,18 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+### Changed
+
+* Maintain z value when translating from ArcGIS to GeoJSON
+
 ## [1.0.4]
 
 ### Changed
 
 * published package in [`@esri`](https://www.npmjs.com/org/esri) namespace on npm.
+
 ### Fixed
 
 * ensure built version of lib can be minified using `uglify-js`. #17 thanks @chidg!

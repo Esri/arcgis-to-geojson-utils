@@ -705,6 +705,23 @@ test('should parse an ArcGIS Point in a GeoJSON Point', function (t) {
   t.deepEqual(output.coordinates, [-66.796875, 20.0390625]);
 });
 
+test('should parse an ArcGIS Point in a GeoJSON Point and include z values', function (t) {
+  t.plan(1);
+
+  var input = {
+    'x': -66.796875,
+    'y': 20.0390625,
+    'z': 1,
+    'spatialReference': {
+      'wkid': 4326
+    }
+  };
+
+  var output = arcgisToGeoJSON(input);
+
+  t.deepEqual(output.coordinates, [-66.796875, 20.0390625, 1]);
+});
+
 test('should parse an ArcGIS Null Island in a GeoJSON Point', function (t) {
   t.plan(1);
 
@@ -763,6 +780,29 @@ test('should parse an ArcGIS Polyline in a GeoJSON LineString', function (t) {
   ]);
 });
 
+test('should parse an ArcGIS Polyline in a GeoJSON LineString and include z values', function (t) {
+  t.plan(1);
+
+  var input = {
+    'paths': [
+      [ [6.6796875, 47.8125, 1],
+      [-65.390625, 52.3828125, 1],
+      [-52.3828125, 42.5390625, 1] ]
+    ],
+    'spatialReference': {
+      'wkid': 4326
+    }
+  };
+
+  var output = arcgisToGeoJSON(input);
+
+  t.deepEqual(output.coordinates, [
+    [6.6796875, 47.8125, 1],
+    [-65.390625, 52.3828125, 1],
+    [-52.3828125, 42.5390625, 1]
+  ]);
+});
+
 test('should parse an ArcGIS Polygon in a GeoJSON Polygon', function (t) {
   t.plan(2);
 
@@ -788,6 +828,37 @@ test('should parse an ArcGIS Polygon in a GeoJSON Polygon', function (t) {
       [56.953125, 33.75],
       [21.796875, 36.5625],
       [41.8359375, 71.015625]
+    ]
+  ]);
+
+  t.equal(output.type, 'Polygon');
+});
+
+test('should parse an ArcGIS Polygon in a GeoJSON Polygon and include z values', function (t) {
+  t.plan(2);
+
+  var input = {
+    'rings': [
+      [
+        [41.8359375, 71.015625, 1],
+        [56.953125, 33.75, 1],
+        [21.796875, 36.5625, 1],
+        [41.8359375, 71.015625, 1]
+      ]
+    ],
+    'spatialReference': {
+      'wkid': 4326
+    }
+  };
+
+  var output = arcgisToGeoJSON(input);
+
+  t.deepEqual(output.coordinates, [
+    [
+      [41.8359375, 71.015625, 1],
+      [56.953125, 33.75, 1],
+      [21.796875, 36.5625, 1],
+      [41.8359375, 71.015625, 1]
     ]
   ]);
 
