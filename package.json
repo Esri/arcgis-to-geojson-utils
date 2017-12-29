@@ -13,7 +13,6 @@
     "browserify": "^12.0.1",
     "faucet": "0.0.1",
     "gh-release": "^2.0.2",
-    "phantomjs": "^1.9.19",
     "rollup": "^0.21.0",
     "semistandard": "*",
     "snazzy": "^2.0.1",
@@ -43,7 +42,7 @@
   "scripts": {
     "lint": "semistandard | snazzy",
     "test:node": "babel-node test/index.js [ babelify --presets es2015 ] | faucet",
-    "test:browser": "browserify test/index.js -t [ babelify --presets es2015 ] --debug | tape-run --browser phantom | faucet",
+    "test:browser": "browserify test/index.js -t [ babelify --presets es2015 ] --debug | tape-run --browser chrome | faucet",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "release": "./release.sh",
     "bundle": "rollup index.js -m dist/arcgis-to-geojson.js.map -f umd -o dist/arcgis-to-geojson.js -n ArcgisToGeojsonUtils",
