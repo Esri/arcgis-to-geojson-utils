@@ -1367,6 +1367,54 @@ test('should parse an ArcGIS Feature w/ no geometry into a GeoJSON Feature', fun
   t.deepEqual(output.properties.foo, 'bar');
 });
 
+test('should not allow GeoJSON Feature with id field that is not string or number', function (t) {
+  t.plan(1);
+
+  var input = {
+    'geometry': {
+      'x': -66.796875,
+      'y': 20.0390625,
+      'spatialReference': {
+        'wkid': 4326
+      }
+    },
+    'attributes': {
+      'OBJECTID': 123,
+      'some_field': {
+        'not an number': 'or a string'
+      }
+    }
+  };
+
+  var output = arcgisToGeoJSON(input, 'some_field');
+
+  // 'some_field' isn't a number - fall back to OBJECTID
+  t.equal(output.id, 123);
+});
+
+test('should not allow GeoJSON Feature with id: undefined', function (t) {
+  t.plan(1);
+
+  var input = {
+    'geometry': {
+      'x': -66.796875,
+      'y': 20.0390625,
+      'spatialReference': {
+        'wkid': 4326
+      }
+    },
+    // no 'OBJECTID' or 'FID' in 'attributes'
+    'attributes': {
+      'foo': 'bar'
+    }
+  };
+
+  var output = arcgisToGeoJSON(input);
+
+  // output should not have an id key
+  t.equal(true, !('id' in output));
+});
+
 test('should not modify the original ArcGIS Geometry', function (t) {
   t.plan(1);
 

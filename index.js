@@ -244,6 +244,21 @@ function shallowClone (obj) {
   return target;
 }
 
+function getId (attributes, idAttribute) {
+  var keys = idAttribute ? [idAttribute, 'OBJECTID', 'FID'] : ['OBJECTID', 'FID'];
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    if (
+      key in attributes &&
+      (typeof attributes[key] === 'string' ||
+        typeof attributes[key] === 'number')
+    ) {
+      return attributes[key];
+    }
+  }
+  throw Error('No valid id attribute found found');
+}
+
 export function arcgisToGeoJSON (arcgis, idAttribute) {
   var geojson = {};
 
@@ -279,7 +294,11 @@ export function arcgisToGeoJSON (arcgis, idAttribute) {
     geojson.geometry = (arcgis.geometry) ? arcgisToGeoJSON(arcgis.geometry) : null;
     geojson.properties = (arcgis.attributes) ? shallowClone(arcgis.attributes) : null;
     if (arcgis.attributes) {
-      geojson.id = arcgis.attributes[idAttribute] || arcgis.attributes.OBJECTID || arcgis.attributes.FID;
+      try {
+        geojson.id = getId(arcgis.attributes, idAttribute);
+      } catch (err) {
+        // don't set an id
+      }
     }
   }
 
