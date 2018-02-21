@@ -31,3 +31,6 @@ dist
 
 # local testing
 test.js
+
+# test log
+.source.**.html
