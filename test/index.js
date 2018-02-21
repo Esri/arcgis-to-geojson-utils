@@ -1415,6 +1415,31 @@ test('should not allow GeoJSON Feature with id: undefined', function (t) {
   t.equal(true, !('id' in output));
 });
 
+test('should convert SRID other than 4326 without CRS attribute', function (t) {
+  t.plan(3);
+
+  var input = {
+    'x': 392917.31,
+    'y': 298521.34,
+    'spatialReference': {
+      'wkid': 27700
+    }
+  };
+
+  // mock out console.warn so we can test logging a warning
+  console.warn = function (text) {
+    t.equal(
+      true,
+      (text.indexOf('Object converted but GeoJSON does not support a "crs" attribute') !== -1)
+    );
+  };
+  var output = arcgisToGeoJSON(input);
+
+  // output should not have a crs key
+  t.equal(true, !('crs' in output));
+  t.deepEqual(output.coordinates, [392917.31, 298521.34]);
+});
+
 test('should not modify the original ArcGIS Geometry', function (t) {
   t.plan(1);
 

@@ -307,6 +307,15 @@ export function arcgisToGeoJSON (arcgis, idAttribute) {
     geojson.geometry = null;
   }
 
+  if (
+    arcgis.spatialReference &&
+    arcgis.spatialReference.wkid &&
+    arcgis.spatialReference.wkid !== 4326
+  ) {
+    console.warn('Found spatialReference ' + JSON.stringify(arcgis.spatialReference) +
+      '. Object converted but GeoJSON does not support a "crs" attribute');
+  }
+
   return geojson;
 }
 
