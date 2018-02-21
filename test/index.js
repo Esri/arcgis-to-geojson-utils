@@ -329,15 +329,17 @@ test('should convert a GeoJSON MultiPolygon w/ holes to an ArcGIS Polygon', func
       ],
       [
         [100.2, 0.2],
-      [100.8, 0.2],
-      [100.8, 0.8],
-      [100.2, 0.8],
-      [100.2, 0.2] ],
-      [ [100, 0],
-      [100, 1],
-      [101, 1],
-      [101, 0],
-      [100, 0] ]
+        [100.8, 0.2],
+        [100.8, 0.8],
+        [100.2, 0.8],
+        [100.2, 0.2] ],
+      [
+        [100, 0],
+        [100, 1],
+        [101, 1],
+        [101, 0],
+        [100, 0]
+      ]
     ]
   });
 });
@@ -416,10 +418,12 @@ test('should convert a GeoJSON Feature into an ArcGIS Feature', function (t) {
   t.deepEqual(output, {
     'geometry': {
       'rings': [
-        [ [41.8359375, 71.015625],
-        [56.953125, 33.75],
-        [21.796875, 36.5625],
-        [41.8359375, 71.015625] ]
+        [
+          [41.8359375, 71.015625],
+          [56.953125, 33.75],
+          [21.796875, 36.5625],
+          [41.8359375, 71.015625]
+        ]
       ],
       'spatialReference': {
         'wkid': 4326
@@ -442,9 +446,9 @@ test('should convert a GeoJSON Feature into an ArcGIS Feature w/ a custom id', f
       'type': 'Polygon',
       'coordinates': [
         [ [41.8359375, 71.015625],
-        [56.953125, 33.75],
-        [21.796875, 36.5625],
-        [41.8359375, 71.015625] ]
+          [56.953125, 33.75],
+          [21.796875, 36.5625],
+          [41.8359375, 71.015625] ]
       ]
     },
     'properties': {
@@ -528,10 +532,10 @@ test('should convert a GeoJSON FeatureCollection into an array of ArcGIS Feature
         'type': 'Polygon',
         'coordinates': [
           [ [100.0, 0.0],
-          [101.0, 0.0],
-          [101.0, 1.0],
-          [100.0, 1.0],
-          [100.0, 0.0] ]
+            [101.0, 0.0],
+            [101.0, 1.0],
+            [100.0, 1.0],
+            [100.0, 0.0] ]
         ]
       },
       'properties': {
@@ -557,9 +561,9 @@ test('should convert a GeoJSON FeatureCollection into an array of ArcGIS Feature
     'geometry': {
       'paths': [
         [[102, 0],
-        [103, 1],
-        [104, 0],
-        [105, 1]]
+          [103, 1],
+          [104, 0],
+          [105, 1]]
       ],
       'spatialReference': {
         'wkid': 4326
@@ -572,10 +576,10 @@ test('should convert a GeoJSON FeatureCollection into an array of ArcGIS Feature
     'geometry': {
       'rings': [
         [ [100, 0],
-        [100, 1],
-        [101, 1],
-        [101, 0],
-        [100, 0] ]
+          [100, 1],
+          [101, 1],
+          [101, 0],
+          [100, 0] ]
       ],
       'spatialReference': {
         'wkid': 4326
@@ -609,10 +613,10 @@ test('should convert a GeoJSON GeometryCollection into an array of ArcGIS Geomet
   t.deepEqual(output, [{
     'rings': [
       [[-95, 43],
-      [-95, 50],
-      [-90, 50],
-      [-91, 42],
-      [-95, 43]]
+        [-95, 50],
+        [-90, 50],
+        [-91, 42],
+        [-95, 43]]
     ],
     'spatialReference': {
       'wkid': 4326
@@ -620,9 +624,9 @@ test('should convert a GeoJSON GeometryCollection into an array of ArcGIS Geomet
   }, {
     'paths': [
       [[-89, 42],
-      [-89, 50],
-      [-80, 50],
-      [-80, 42]]
+        [-89, 50],
+        [-80, 50],
+        [-80, 42]]
     ],
     'spatialReference': {
       'wkid': 4326
@@ -670,10 +674,10 @@ test('should not modify the original GeoJSON object', function (t) {
         'type': 'Polygon',
         'coordinates': [
           [ [100.0, 0.0],
-          [101.0, 0.0],
-          [101.0, 1.0],
-          [100.0, 1.0],
-          [100.0, 0.0] ]
+            [101.0, 0.0],
+            [101.0, 1.0],
+            [100.0, 1.0],
+            [100.0, 0.0] ]
         ]
       },
       'properties': {
@@ -763,8 +767,8 @@ test('should parse an ArcGIS Polyline in a GeoJSON LineString', function (t) {
   var input = {
     'paths': [
       [ [6.6796875, 47.8125],
-      [-65.390625, 52.3828125],
-      [-52.3828125, 42.5390625] ]
+        [-65.390625, 52.3828125],
+        [-52.3828125, 42.5390625] ]
     ],
     'spatialReference': {
       'wkid': 4326
@@ -786,8 +790,8 @@ test('should parse an ArcGIS Polyline in a GeoJSON LineString and include z valu
   var input = {
     'paths': [
       [ [6.6796875, 47.8125, 1],
-      [-65.390625, 52.3828125, 1],
-      [-52.3828125, 42.5390625, 1] ]
+        [-65.390625, 52.3828125, 1],
+        [-52.3828125, 42.5390625, 1] ]
     ],
     'spatialReference': {
       'wkid': 4326
@@ -1182,9 +1186,9 @@ test('should parse an ArcGIS Feature into a GeoJSON Feature', function (t) {
     'geometry': {
       'rings': [
         [ [41.8359375, 71.015625],
-        [56.953125, 33.75],
-        [21.796875, 36.5625],
-        [41.8359375, 71.015625] ]
+          [56.953125, 33.75],
+          [21.796875, 36.5625],
+          [41.8359375, 71.015625] ]
       ],
       'spatialReference': {
         'wkid': 4326
@@ -1199,9 +1203,9 @@ test('should parse an ArcGIS Feature into a GeoJSON Feature', function (t) {
 
   t.deepEqual(output.geometry.coordinates, [
     [ [41.8359375, 71.015625],
-    [56.953125, 33.75],
-    [21.796875, 36.5625],
-    [41.8359375, 71.015625] ]
+      [56.953125, 33.75],
+      [21.796875, 36.5625],
+      [41.8359375, 71.015625] ]
   ]);
 
   t.equal(output.geometry.type, 'Polygon');
@@ -1214,9 +1218,9 @@ test('should parse an ArcGIS Feature w/ OBJECTID into a GeoJSON Feature', functi
     'geometry': {
       'rings': [
         [ [41.8359375, 71.015625],
-        [56.953125, 33.75],
-        [21.796875, 36.5625],
-        [41.8359375, 71.015625] ]
+          [56.953125, 33.75],
+          [21.796875, 36.5625],
+          [41.8359375, 71.015625] ]
       ],
       'spatialReference': {
         'wkid': 4326
@@ -1239,9 +1243,9 @@ test('should parse an ArcGIS Feature w/ FID into a GeoJSON Feature', function (t
     'geometry': {
       'rings': [
         [ [41.8359375, 71.015625],
-        [56.953125, 33.75],
-        [21.796875, 36.5625],
-        [41.8359375, 71.015625] ]
+          [56.953125, 33.75],
+          [21.796875, 36.5625],
+          [41.8359375, 71.015625] ]
       ],
       'spatialReference': {
         'wkid': 4326
@@ -1264,9 +1268,9 @@ test('should parse an ArcGIS Feature w/ a custom id into a GeoJSON Feature', fun
     'geometry': {
       'rings': [
         [ [41.8359375, 71.015625],
-        [56.953125, 33.75],
-        [21.796875, 36.5625],
-        [41.8359375, 71.015625] ]
+          [56.953125, 33.75],
+          [21.796875, 36.5625],
+          [41.8359375, 71.015625] ]
       ],
       'spatialReference': {
         'wkid': 4326
@@ -1289,9 +1293,9 @@ test('should parse an ArcGIS Feature w/ empty attributes into a GeoJSON Feature'
     'geometry': {
       'rings': [
         [ [41.8359375, 71.015625],
-        [56.953125, 33.75],
-        [21.796875, 36.5625],
-        [41.8359375, 71.015625] ]
+          [56.953125, 33.75],
+          [21.796875, 36.5625],
+          [41.8359375, 71.015625] ]
       ],
       'spatialReference': {
         'wkid': 4326
