@@ -46,6 +46,6 @@
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "release": "./release.sh",
     "bundle": "rollup index.js -m dist/arcgis-to-geojson.js.map -f umd -o dist/arcgis-to-geojson.js -n ArcgisToGeojsonUtils",
-    "prepublish": "npm run bundle"
+    "prepare": "npm run bundle"
   }
 }
