@@ -1388,8 +1388,31 @@ test('should not allow GeoJSON Feature with id field that is not string or numbe
 
   var output = arcgisToGeoJSON(input, 'some_field');
 
-  // 'some_field' isn't a number - fall back to OBJECTID
+  // 'some_field' isn't a number - fallback to OBJECTID
   t.equal(output.id, 123);
+});
+
+test('should use a custom field value and not OBJECTID for an id when both are present', function (t) {
+  t.plan(1);
+
+  var input = {
+    'geometry': {
+      'x': -66.796875,
+      'y': 20.0390625,
+      'spatialReference': {
+        'wkid': 4326
+      }
+    },
+    'attributes': {
+      'OBJECTID': 123,
+      'otherIdField': 456
+    }
+  };
+
+  var output = arcgisToGeoJSON(input, 'otherIdField');
+
+  // 'some_field' isn't a number - fallback to OBJECTID
+  t.equal(output.id, 456);
 });
 
 test('should not allow GeoJSON Feature with id: undefined', function (t) {
@@ -1415,7 +1438,7 @@ test('should not allow GeoJSON Feature with id: undefined', function (t) {
   t.equal(true, !('id' in output));
 });
 
-test('should convert SRID other than 4326 without CRS attribute', function (t) {
+test('should log warning when converting SRID other than 4326 without CRS attribute', function (t) {
   t.plan(3);
 
   var input = {
@@ -1430,7 +1453,7 @@ test('should convert SRID other than 4326 without CRS attribute', function (t) {
   console.warn = function (text) {
     t.equal(
       true,
-      (text.indexOf('Object converted but GeoJSON does not support a "crs" attribute') !== -1)
+      (text.indexOf('Object converted in non-standard crs') !== -1)
     );
   };
   var output = arcgisToGeoJSON(input);

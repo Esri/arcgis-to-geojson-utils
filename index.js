@@ -256,7 +256,7 @@ function getId (attributes, idAttribute) {
       return attributes[key];
     }
   }
-  throw Error('No valid id attribute found found');
+  throw Error('No valid id attribute found');
 }
 
 export function arcgisToGeoJSON (arcgis, idAttribute) {
@@ -312,8 +312,7 @@ export function arcgisToGeoJSON (arcgis, idAttribute) {
     arcgis.spatialReference.wkid &&
     arcgis.spatialReference.wkid !== 4326
   ) {
-    console.warn('Found spatialReference ' + JSON.stringify(arcgis.spatialReference) +
-      '. Object converted but GeoJSON does not support a "crs" attribute');
+    console.warn('Object converted in non-standard crs - ' + JSON.stringify(arcgis.spatialReference));
   }
 
   return geojson;
