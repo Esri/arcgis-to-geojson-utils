@@ -829,8 +829,8 @@ test('should parse an ArcGIS Polygon in a GeoJSON Polygon', function (t) {
   t.deepEqual(output.coordinates, [
     [
       [41.8359375, 71.015625],
-      [56.953125, 33.75],
       [21.796875, 36.5625],
+      [56.953125, 33.75],
       [41.8359375, 71.015625]
     ]
   ]);
@@ -860,8 +860,8 @@ test('should parse an ArcGIS Polygon in a GeoJSON Polygon and include z values',
   t.deepEqual(output.coordinates, [
     [
       [41.8359375, 71.015625, 1],
-      [56.953125, 33.75, 1],
       [21.796875, 36.5625, 1],
+      [56.953125, 33.75, 1],
       [41.8359375, 71.015625, 1]
     ]
   ]);
@@ -890,8 +890,8 @@ test('should close rings when parsing an ArcGIS Polygon in a GeoJSON Polygon', f
   t.deepEqual(output.coordinates, [
     [
       [41.8359375, 71.015625],
-      [56.953125, 33.75],
       [21.796875, 36.5625],
+      [56.953125, 33.75],
       [41.8359375, 71.015625]
     ]
   ]);
@@ -983,24 +983,25 @@ test('should parse an ArcGIS Polygon in a GeoJSON MultiPolygon', function (t) {
   };
 
   var output = arcgisToGeoJSON(input);
+
   var expected = [
     [
       [
         [-122.63, 45.52],
-        [-122.57, 45.53],
-        [-122.52, 45.5],
-        [-122.49, 45.48],
-        [-122.64, 45.49],
         [-122.63, 45.52],
+        [-122.64, 45.49],
+        [-122.49, 45.48],
+        [-122.52, 45.5],
+        [-122.57, 45.53],
         [-122.63, 45.52]
       ]
     ],
     [
       [
         [-83, 35],
-        [-83, 41],
-        [-74, 41],
         [-74, 35],
+        [-74, 41],
+        [-83, 41],
         [-83, 35]
       ]
     ]
@@ -1040,11 +1041,11 @@ test('should strip invalid rings when converting ArcGIS Polygons to GeoJSON', fu
   t.deepEqual(output.coordinates, [
     [
       [-122.63, 45.52],
-      [-122.57, 45.53],
-      [-122.52, 45.5],
-      [-122.49, 45.48],
-      [-122.64, 45.49],
       [-122.63, 45.52],
+      [-122.64, 45.49],
+      [-122.49, 45.48],
+      [-122.52, 45.5],
+      [-122.57, 45.53],
       [-122.63, 45.52]
     ]
   ]);
@@ -1081,19 +1082,19 @@ test('should properly close rings when converting an ArcGIS Polygon in a GeoJSON
     [
       [
         [-122.63, 45.52],
-        [-122.57, 45.53],
-        [-122.52, 45.5],
-        [-122.49, 45.48],
         [-122.64, 45.49],
+        [-122.49, 45.48],
+        [-122.52, 45.5],
+        [-122.57, 45.53],
         [-122.63, 45.52]
       ]
     ],
     [
       [
         [-83, 35],
-        [-83, 41],
-        [-74, 41],
         [-74, 35],
+        [-74, 41],
+        [-83, 41],
         [-83, 35]
       ]
     ]
@@ -1147,12 +1148,12 @@ test('should parse an ArcGIS MultiPolygon with holes to a GeoJSON MultiPolygon',
 
   t.deepEquals(output.coordinates, [
     [
-      [ [-100.74462180954974, 39.95017165502381], [-94.50439384003792, 39.91647453608879], [-94.41650267263967, 34.89313438177965], [-100.78856739324887, 34.85708140996771], [-100.74462180954974, 39.95017165502381] ],
-      [ [-96.83349180978595, 37.23732027507514], [-97.31689323047635, 35.967330282988534], [-96.5698183075912, 35.57512048069255], [-95.42724211456674, 36.357601429255965], [-96.83349180978595, 37.23732027507514] ],
-      [ [-99.68993678392353, 39.341088433448896], [-99.68993678392353, 38.24507658785885], [-98.67919734199646, 37.86444431771113], [-98.06395917020868, 38.210554846669694], [-98.06395917020868, 39.341088433448896], [-99.68993678392353, 39.341088433448896] ]
+      [ [-100.74462180954974, 39.95017165502381], [-100.78856739324887, 34.85708140996771], [-94.41650267263967, 34.89313438177965], [-94.50439384003792, 39.91647453608879], [-100.74462180954974, 39.95017165502381] ],
+      [ [-96.83349180978595, 37.23732027507514], [-95.42724211456674, 36.357601429255965], [-96.5698183075912, 35.57512048069255], [-97.31689323047635, 35.967330282988534], [-96.83349180978595, 37.23732027507514] ],
+      [ [-99.68993678392353, 39.341088433448896], [-98.06395917020868, 39.341088433448896], [-98.06395917020868, 38.210554846669694], [-98.67919734199646, 37.86444431771113], [-99.68993678392353, 38.24507658785885], [-99.68993678392353, 39.341088433448896] ]
     ],
     [
-      [ [-101.4916967324349, 38.24507658785885], [-101.44775114873578, 36.073960493943744], [-103.95263145328033, 36.03843312329154], [-103.68895795108557, 38.03770050767439], [-101.4916967324349, 38.24507658785885] ]
+      [ [-101.4916967324349, 38.24507658785885], [-103.68895795108557, 38.03770050767439], [-103.95263145328033, 36.03843312329154], [-101.44775114873578, 36.073960493943744], [-101.4916967324349, 38.24507658785885] ]
     ]
   ]);
 
@@ -1172,8 +1173,8 @@ test('should still parse holes outside the outer rings', function (t) {
   var output = arcgisToGeoJSON(input);
 
   var expected = [
-    [ [-122.45, 45.63], [-122.45, 45.68], [-122.39, 45.68], [-122.39, 45.63], [-122.45, 45.63] ],
-    [ [-122.46, 45.64], [-122.4, 45.64], [-122.4, 45.66], [-122.46, 45.66], [-122.46, 45.64] ]
+    [ [-122.45, 45.63], [-122.39, 45.63], [-122.39, 45.68], [-122.45, 45.68], [-122.45, 45.63] ],
+    [ [-122.46, 45.64], [-122.46, 45.66], [-122.4, 45.66], [-122.4, 45.64], [-122.46, 45.64] ]
   ];
 
   t.deepEquals(output.coordinates, expected);
@@ -1203,8 +1204,8 @@ test('should parse an ArcGIS Feature into a GeoJSON Feature', function (t) {
 
   t.deepEqual(output.geometry.coordinates, [
     [ [41.8359375, 71.015625],
-      [56.953125, 33.75],
       [21.796875, 36.5625],
+      [56.953125, 33.75],
       [41.8359375, 71.015625] ]
   ]);
 
@@ -1309,8 +1310,8 @@ test('should parse an ArcGIS Feature w/ empty attributes into a GeoJSON Feature'
   t.deepEqual(output.geometry.coordinates, [
     [
       [41.8359375, 71.015625],
-      [56.953125, 33.75],
       [21.796875, 36.5625],
+      [56.953125, 33.75],
       [41.8359375, 71.015625]
     ]
   ]);
@@ -1344,8 +1345,8 @@ test('should parse an ArcGIS Feature w/ no attributes into a GeoJSON Feature', f
   t.deepEqual(output.geometry.coordinates, [
     [
       [41.8359375, 71.015625],
-      [56.953125, 33.75],
       [21.796875, 36.5625],
+      [56.953125, 33.75],
       [41.8359375, 71.015625]
     ]
   ]);
@@ -1364,6 +1365,102 @@ test('should parse an ArcGIS Feature w/ no geometry into a GeoJSON Feature', fun
 
   t.deepEqual(output.geometry, null);
   t.deepEqual(output.properties.foo, 'bar');
+});
+
+test('should not allow GeoJSON Feature with id field that is not string or number', function (t) {
+  t.plan(1);
+
+  var input = {
+    'geometry': {
+      'x': -66.796875,
+      'y': 20.0390625,
+      'spatialReference': {
+        'wkid': 4326
+      }
+    },
+    'attributes': {
+      'OBJECTID': 123,
+      'some_field': {
+        'not an number': 'or a string'
+      }
+    }
+  };
+
+  var output = arcgisToGeoJSON(input, 'some_field');
+
+  // 'some_field' isn't a number - fallback to OBJECTID
+  t.equal(output.id, 123);
+});
+
+test('should use a custom field value and not OBJECTID for an id when both are present', function (t) {
+  t.plan(1);
+
+  var input = {
+    'geometry': {
+      'x': -66.796875,
+      'y': 20.0390625,
+      'spatialReference': {
+        'wkid': 4326
+      }
+    },
+    'attributes': {
+      'OBJECTID': 123,
+      'otherIdField': 456
+    }
+  };
+
+  var output = arcgisToGeoJSON(input, 'otherIdField');
+
+  // 'some_field' isn't a number - fallback to OBJECTID
+  t.equal(output.id, 456);
+});
+
+test('should not allow GeoJSON Feature with id: undefined', function (t) {
+  t.plan(1);
+
+  var input = {
+    'geometry': {
+      'x': -66.796875,
+      'y': 20.0390625,
+      'spatialReference': {
+        'wkid': 4326
+      }
+    },
+    // no 'OBJECTID' or 'FID' in 'attributes'
+    'attributes': {
+      'foo': 'bar'
+    }
+  };
+
+  var output = arcgisToGeoJSON(input);
+
+  // output should not have an id key
+  t.equal(true, !('id' in output));
+});
+
+test('should log warning when converting SRID other than 4326 without CRS attribute', function (t) {
+  t.plan(3);
+
+  var input = {
+    'x': 392917.31,
+    'y': 298521.34,
+    'spatialReference': {
+      'wkid': 27700
+    }
+  };
+
+  // mock out console.warn so we can test logging a warning
+  console.warn = function (text) {
+    t.equal(
+      true,
+      (text.indexOf('Object converted in non-standard crs') !== -1)
+    );
+  };
+  var output = arcgisToGeoJSON(input);
+
+  // output should not have a crs key
+  t.equal(true, !('crs' in output));
+  t.deepEqual(output.coordinates, [392917.31, 298521.34]);
 });
 
 test('should not modify the original ArcGIS Geometry', function (t) {

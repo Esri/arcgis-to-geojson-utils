@@ -121,10 +121,10 @@ function convertRingsToGeoJSON (rings) {
     }
     // is this ring an outer ring? is it clockwise?
     if (ringIsClockwise(ring)) {
-      var polygon = [ ring ];
+      var polygon = [ ring.slice().reverse() ]; // wind outer rings counterclockwise for RFC 7946 compliance
       outerRings.push(polygon); // push to outer rings
     } else {
-      holes.push(ring); // counterclockwise push to holes
+      holes.push(ring.slice().reverse()); // wind inner rings clockwise for RFC 7946 compliance
     }
   }
 
@@ -244,6 +244,21 @@ function shallowClone (obj) {
   return target;
 }
 
+function getId (attributes, idAttribute) {
+  var keys = idAttribute ? [idAttribute, 'OBJECTID', 'FID'] : ['OBJECTID', 'FID'];
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    if (
+      key in attributes &&
+      (typeof attributes[key] === 'string' ||
+        typeof attributes[key] === 'number')
+    ) {
+      return attributes[key];
+    }
+  }
+  throw Error('No valid id attribute found');
+}
+
 export function arcgisToGeoJSON (arcgis, idAttribute) {
   var geojson = {};
 
@@ -279,13 +294,25 @@ export function arcgisToGeoJSON (arcgis, idAttribute) {
     geojson.geometry = (arcgis.geometry) ? arcgisToGeoJSON(arcgis.geometry) : null;
     geojson.properties = (arcgis.attributes) ? shallowClone(arcgis.attributes) : null;
     if (arcgis.attributes) {
-      geojson.id = arcgis.attributes[idAttribute] || arcgis.attributes.OBJECTID || arcgis.attributes.FID;
+      try {
+        geojson.id = getId(arcgis.attributes, idAttribute);
+      } catch (err) {
+        // don't set an id
+      }
     }
   }
 
   // if no valid geometry was encountered
   if (JSON.stringify(geojson.geometry) === JSON.stringify({})) {
     geojson.geometry = null;
+  }
+
+  if (
+    arcgis.spatialReference &&
+    arcgis.spatialReference.wkid &&
+    arcgis.spatialReference.wkid !== 4326
+  ) {
+    console.warn('Object converted in non-standard crs - ' + JSON.stringify(arcgis.spatialReference));
   }
 
   return geojson;
