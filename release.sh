@@ -13,7 +13,7 @@ npm test || exit 1
 git checkout -b gh-release
 
 # run prepublish to build files
-npm run prepublish
+npm run prepare
 
 # force add files
 git add dist -f
