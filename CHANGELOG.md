@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.0]
+
+### Changed
+
+* Ring-winding order for GeoJSON Polygons prescribed by [RFC 7946](https://tools.ietf.org/html/rfc7946#section-3.1.6) is now enforced. (🙏chris48s🙏 [#22](https://github.com/Esri/arcgis-to-geojson-utils/pull/22))
+
 ## [1.0.5]
 
 ### Changed
