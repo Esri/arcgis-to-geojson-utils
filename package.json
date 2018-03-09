@@ -19,6 +19,10 @@
     "tape": "^4.0.0",
     "tape-run": "^2.1.0"
   },
+  "files": [
+    "index.js",
+    "dist/arcgis-to-geojson.js.map"
+  ],
   "homepage": "https://github.com/Esri/arcgis-to-geojson-utils",
   "keywords": [
     "arcgis",
@@ -29,7 +33,7 @@
   ],
   "license": "Apache-2.0",
   "main": "dist/arcgis-to-geojson.js",
-  "jsnext:main": "index.js",
+  "module": "index.js",
   "jspm": {
     "main": "index.js",
     "registry": "npm",
