@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.1] - 2018-03-08
+
+### Fixed
+
+* ensure ES6 module is publicized in package.json as the `module` for Rollup and other modern bundlers.
+
 ## [1.1.0]
 
 ### Changed
@@ -50,7 +56,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## 1.0.0
 * First Release
 
-[Unreleased]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.0.5...HEAD
+[Unreleased]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.0.5...v1.1.0
 [1.0.5]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.0.2...v1.0.3
