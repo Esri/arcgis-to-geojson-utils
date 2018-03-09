@@ -4,7 +4,7 @@
 [![travis][travis-image]][travis-url]
 [![standard][standard-image]][standard-url]
 
-[npm-image]: https://img.shields.io/npm/v/arcgis-to-geojson-utils.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/@esri/arcgis-to-geojson-utils.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/@esri/arcgis-to-geojson-utils
 [travis-image]: https://img.shields.io/travis/Esri/arcgis-to-geojson-utils/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/Esri/arcgis-to-geojson-utils
