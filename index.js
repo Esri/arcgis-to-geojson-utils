@@ -262,6 +262,14 @@ function getId (attributes, idAttribute) {
 export function arcgisToGeoJSON (arcgis, idAttribute) {
   var geojson = {};
 
+  if (arcgis.features) {
+    geojson.type = 'FeatureCollection';
+    geojson.features = [];
+    for (var i = 0; i < arcgis.features.length; i++) {
+      geojson.features.push(arcgisToGeoJSON(arcgis.features[i]));
+    }
+  }
+
   if (typeof arcgis.x === 'number' && typeof arcgis.y === 'number') {
     geojson.type = 'Point';
     geojson.coordinates = [arcgis.x, arcgis.y];
