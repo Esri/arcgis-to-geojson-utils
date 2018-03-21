@@ -1225,6 +1225,16 @@ test('should convert ArcGIS JSON with an array of ArcGIS Features into a GeoJSON
         'type': 'esriFieldTypeString',
         'alias': 'prop0',
         'length': 20
+      },
+      {
+        'name': 'OBJECTID',
+        'type': 'esriFieldTypeOID',
+        'alias': 'OBJECTID'
+      },
+      {
+        'name': 'FID',
+        'type': 'esriFieldTypeDouble',
+        'alias': 'FID'
       }
     ],
     'spatialReference': { 'wkid': 4326 },
@@ -1235,7 +1245,9 @@ test('should convert ArcGIS JSON with an array of ArcGIS Features into a GeoJSON
           'y': 0.5
         },
         'attributes': {
-          'prop0': 'value0'
+          'prop0': 'value0',
+          'OBJECTID': 0,
+          'FID': 0
         }
       }, {
         'geometry': {
@@ -1247,7 +1259,9 @@ test('should convert ArcGIS JSON with an array of ArcGIS Features into a GeoJSON
           ]
         },
         'attributes': {
-          'prop0': 'value0'
+          'prop0': null,
+          'OBJECTID': null,
+          'FID': 1
         }
       }, {
         'geometry': {
@@ -1260,13 +1274,15 @@ test('should convert ArcGIS JSON with an array of ArcGIS Features into a GeoJSON
           ]
         },
         'attributes': {
-          'prop0': 'value0'
+          'prop0': null,
+          'OBJECTID': 2,
+          'FID': 30.25
         }
       }
     ]
   };
 
-  var output = arcgisToGeoJSON(input);
+  var output = arcgisToGeoJSON(input, 'prop0');
 
   t.deepEqual(output, {
     'type': 'FeatureCollection',
@@ -1277,8 +1293,11 @@ test('should convert ArcGIS JSON with an array of ArcGIS Features into a GeoJSON
         'coordinates': [102.0, 0.5]
       },
       'properties': {
-        'prop0': 'value0'
-      }
+        'prop0': 'value0',
+        'OBJECTID': 0,
+        'FID': 0
+      },
+      'id': 'value0'
     }, {
       'type': 'Feature',
       'geometry': {
@@ -1291,8 +1310,11 @@ test('should convert ArcGIS JSON with an array of ArcGIS Features into a GeoJSON
         ]
       },
       'properties': {
-        'prop0': 'value0'
-      }
+        'prop0': null,
+        'OBJECTID': null,
+        'FID': 1
+      },
+      'id': 1
     }, {
       'type': 'Feature',
       'geometry': {
@@ -1306,8 +1328,11 @@ test('should convert ArcGIS JSON with an array of ArcGIS Features into a GeoJSON
         ]
       },
       'properties': {
-        'prop0': 'value0'
-      }
+        'prop0': null,
+        'OBJECTID': 2,
+        'FID': 30.25
+      },
+      'id': 2
     }]
   });
 });

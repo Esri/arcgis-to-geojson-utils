@@ -266,7 +266,7 @@ export function arcgisToGeoJSON (arcgis, idAttribute) {
     geojson.type = 'FeatureCollection';
     geojson.features = [];
     for (var i = 0; i < arcgis.features.length; i++) {
-      geojson.features.push(arcgisToGeoJSON(arcgis.features[i]));
+      geojson.features.push(arcgisToGeoJSON(arcgis.features[i], idAttribute));
     }
   }
 
