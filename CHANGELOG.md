@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.2.0] - 2018-03-29
+
+### Added
+
+* its now possible to convert an array of ArcGIS JSON features to a GeoJSON [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3). (🙏chris48s🙏 [#28](https://github.com/Esri/arcgis-to-geojson-utils/pull/28))
+
 ## [1.1.1] - 2018-03-08
 
 ### Fixed
@@ -56,7 +62,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## 1.0.0
 * First Release
 
-[Unreleased]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.0.5...v1.1.0
 [1.0.5]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.0.4...v1.0.5

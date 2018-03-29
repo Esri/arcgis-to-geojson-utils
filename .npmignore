@@ -1,4 +1,0 @@
-# for a tidy, compact npm release
-test/
-package-lock.json
-*.zip

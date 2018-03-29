@@ -22,11 +22,11 @@ npm install @esri/arcgis-to-geojson-utils
 ## Usage
 
 ```js
-var arcgisToGeoJSON = require('@esri/arcgis-to-geojson-utils').arcgisToGeoJSON;
-var geojsonToArcGIS = require('@esri/arcgis-to-geojson-utils').geojsonToArcGIS;
+import { arcgisToGeoJSON } from '@esri/arcgis-to-geojson-utils';
+import { geojsonToArcGIS } from '@esri/arcgis-to-geojson-utils';
 
 // parse ArcGIS JSON, convert it to GeoJSON
-var geojson = arcgisToGeoJSON({
+const geojson = arcgisToGeoJSON({
     "x":-122.6764,
     "y":45.5165,
     "spatialReference": {
@@ -35,7 +35,7 @@ var geojson = arcgisToGeoJSON({
   });
 
 // take GeoJSON and convert it to ArcGIS JSON
-var arcgis = geojsonToArcGIS({
+const arcgis = geojsonToArcGIS({
   "type": "Point",
   "coordinates": [45.5165, -122.6764]
 });
@@ -43,13 +43,13 @@ var arcgis = geojsonToArcGIS({
 
 ```js
 // this way works too
-var esriUtils = require('@esri/arcgis-to-geojson-utils');
+const esriUtils = require('@esri/arcgis-to-geojson-utils');
 
 esriUtils.geojsonToArcGIS(/* ... */);
 esriUtils.arcgisToGeoJSON(/* ... */);
 ```
 
-This package is distributed as a [UMD]() module and can also be used in AMD based systems or as a global under the `ArcgisToGeojsonUtils` namespace.
+This package is distributed as a [UMD](https://github.com/umdjs/umd) module and can also be used in AMD based systems or as a global under the `ArcgisToGeojsonUtils` namespace.
 
 
 Thanks to [@JeffJacobson](https://github.com/JeffJacobson), TypeScript typings and tests can be found on [npm](https://www.npmjs.com/package/@types/arcgis-to-geojson-utils).
