@@ -21,6 +21,25 @@ npm install @esri/arcgis-to-geojson-utils
 
 ## Usage
 
+### Browser (from CDN)
+
+This package is distributed as a [UMD](https://github.com/umdjs/umd) module and can also be used in AMD based systems or as a global under the `ArcgisToGeojsonUtils` namespace.
+
+```html
+<script src="https://unpkg.com/@esri/arcgis-to-geojson-utils"></script>
+```
+```js
+ArcgisToGeojsonUtils.arcgisToGeoJSON({
+    "x":-122.6764,
+    "y":45.5165,
+    "spatialReference": {
+      "wkid": 4326
+    }
+});
+```
+
+### ES6
+
 ```js
 import { arcgisToGeoJSON } from '@esri/arcgis-to-geojson-utils';
 import { geojsonToArcGIS } from '@esri/arcgis-to-geojson-utils';
@@ -41,16 +60,14 @@ const arcgis = geojsonToArcGIS({
 });
 ```
 
+### Node.js
+
 ```js
-// this way works too
 const esriUtils = require('@esri/arcgis-to-geojson-utils');
 
 esriUtils.geojsonToArcGIS(/* ... */);
 esriUtils.arcgisToGeoJSON(/* ... */);
 ```
-
-This package is distributed as a [UMD](https://github.com/umdjs/umd) module and can also be used in AMD based systems or as a global under the `ArcgisToGeojsonUtils` namespace.
-
 
 Thanks to [@JeffJacobson](https://github.com/JeffJacobson), TypeScript typings and tests can be found on [npm](https://www.npmjs.com/package/@types/arcgis-to-geojson-utils).
 
