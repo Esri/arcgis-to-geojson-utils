@@ -1616,3 +1616,22 @@ test('should not modify the original ArcGIS Geometry', function (t) {
 
   t.equal(original, JSON.stringify(input));
 });
+
+test('should parse an ArcGIS Extent into a Terraformer GeoJSON Polygon', function (t) {
+  t.plan(2);
+
+  var input = {
+    'xmax': -35.5078125,
+    'ymax': 41.244772343082076,
+    'xmin': -13.7109375,
+    'ymin': 54.36775852406841,
+    'spatialReference': {
+      'wkid': 4326
+    }
+  };
+
+  var output = arcgisToGeoJSON(input);
+
+  t.deepEqual(output.coordinates, [[[-35.5078125, 41.244772343082076], [-13.7109375, 41.244772343082076], [-13.7109375, 54.36775852406841], [-35.5078125, 54.36775852406841], [-35.5078125, 41.244772343082076]]]);
+  t.equal(output.type, 'Polygon');
+});
