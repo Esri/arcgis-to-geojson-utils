@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.0] - 2018-07-06
+
+### Added
+
+* capability to convert ArcGIS Extent/Envelopes to GeoJSON [Polygon](https://tools.ietf.org/html/rfc7946#section-3.1.6). (🙏CorinChappy🙏 [#34](https://github.com/Esri/arcgis-to-geojson-utils/pull/34))
+
 ## [1.2.0] - 2018-03-29
 
 ### Added
@@ -64,7 +70,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## 1.0.0
 * First Release
 
-[Unreleased]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/Esri/arcgis-to-geojson-utils/compare/v1.0.5...v1.1.0
