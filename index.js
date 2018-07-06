@@ -297,6 +297,22 @@ export function arcgisToGeoJSON (arcgis, idAttribute) {
     geojson = convertRingsToGeoJSON(arcgis.rings.slice(0));
   }
 
+  if (
+    typeof arcgis.xmin === 'number' &&
+    typeof arcgis.ymin === 'number' &&
+    typeof arcgis.xmax === 'number' &&
+    typeof arcgis.ymax === 'number'
+  ) {
+    geojson.type = 'Polygon';
+    geojson.coordinates = [[
+      [arcgis.xmax, arcgis.ymax],
+      [arcgis.xmin, arcgis.ymax],
+      [arcgis.xmin, arcgis.ymin],
+      [arcgis.xmax, arcgis.ymin],
+      [arcgis.xmax, arcgis.ymax]
+    ]];
+  }
+
   if (arcgis.geometry || arcgis.attributes) {
     geojson.type = 'Feature';
     geojson.geometry = (arcgis.geometry) ? arcgisToGeoJSON(arcgis.geometry) : null;
