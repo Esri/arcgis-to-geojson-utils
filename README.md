@@ -1,3 +1,7 @@
+# Important
+
+`arcgis-to-geojson-utils` is no longer maintained. It is recommended to migrate to https://github.com/terraformer-js/terraformer/blob/master/packages/arcgis/README.md.
+
 # arcgis-to-geojson-utils
 
 [![npm][npm-image]][npm-url]
